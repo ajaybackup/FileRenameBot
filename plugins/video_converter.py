@@ -28,6 +28,7 @@ from helper_funcs.help_Nekmo_ffmpeg import take_screen_shot
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.errors import UserNotParticipant, UserBannedInChannel 
+from pyrogram import Client as Mai_bOTs 
 
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
@@ -35,7 +36,7 @@ from hachoir.parser import createParser
 from PIL import Image
 
 
-@pyrogram.Client.on_message(pyrogram.filters.command(["c2v"]))
+@Mai_bOTs.on_message(pyrogram.filters.command(["c2v"]))
 async def convert_to_video(bot, update):
     update_channel = Config.UPDATE_CHANNEL
     if update_channel:
@@ -128,7 +129,6 @@ async def convert_to_video(bot, update):
             await bot.send_video(
                 chat_id=update.chat.id,
                 video=the_real_download_location,
-                caption=f"<b>{file_name}</b>",
                 duration=duration,
                 width=width,
                 height=height,
