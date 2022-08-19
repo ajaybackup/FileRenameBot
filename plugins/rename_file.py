@@ -61,21 +61,21 @@ async def set_caption(bot, update):
 
 @Mai_bOTs.on_message(pyrogram.filters.command(["rename"]))
 async def rename_doc(bot, update):
-    update_channel = Config.UPDATE_CHANNEL
-    if update_channel:
-        try:
-            user = await bot.get_chat_member(update_channel, update.chat.id)
-            if user.status == "kicked":
-               await update.reply_text(" Sorry,You've Been Banned From Using Meh!")
-               return
-        except UserNotParticipant:
-            await update.reply_text(
-                text="**Due To The Huge Traffic Only Channel Members Can Use This Bot Means You Need To Join The Below Mentioned Channel Before Using Me! **",
-                reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
-              ])
-            )
-            return
+#    update_channel = Config.UPDATE_CHANNEL
+#    if update_channel:
+#        try:
+#            user = await bot.get_chat_member(update_channel, update.chat.id)
+#            if user.status == "kicked":
+#               await update.reply_text(" Sorry,You've Been Banned From Using Meh!")
+#               return
+#        except UserNotParticipant:
+#            await update.reply_text(
+#                text="**Due To The Huge Traffic Only Channel Members Can Use This Bot Means You Need To Join The Below Mentioned Channel Before Using Me! **",
+#                reply_markup=InlineKeyboardMarkup([
+#                    [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
+#              ])
+#            )
+#            return
     #TRChatBase(update.from_user.id, update.text, "rename")
     if (" " in update.text) and (update.reply_to_message is not None):
         cmd, file_name = update.text.split(" ", 1)
